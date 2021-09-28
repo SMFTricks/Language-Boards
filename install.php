@@ -2,7 +2,7 @@
 
 /**
  * @package Language Boards
- * @version 1.0
+ * @version 1.0.1
  * @author Diego Andrés <diegoandres_cortes@outlook.com>
  * @copyright Copyright (c) 2021, SMF Tricks
  * @license https://www.mozilla.org/en-US/MPL/2.0/
@@ -20,7 +20,7 @@ elseif (!defined('SMF'))
 
 	if (empty($context['uninstalling']))
 	{
-		// Add a column for the referral
+		// Add a column for board language
 		$smcFunc['db_add_column'](
 			'{db_prefix}boards', 
 			[
