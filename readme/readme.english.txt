@@ -17,7 +17,6 @@
 [li][size=9pt]Choose board language or set for any[/size][/li]
 [li][size=9pt]Deny access to boards and topics everywhere in the forum based on language[/size][/li]
 [/list]
-[/list]
 
 [size=12pt][color=maroon]Languages[/color][/size]
 [img]https://www.simplemachines.org/site_images/lang/english.gif[/img]
