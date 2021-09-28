@@ -428,7 +428,21 @@ class LanguageBoards
 		// Load our language file
 		loadLanguage('LanguageBoards/');
 
+		// Add the setting
 		$config_vars[]= '';
-		$config_vars[]= ['check', 'lb_board_deny', 'subtext' => $txt['lb_board_deny_desc']];
+		$config_vars[]= ['check', 'lb_board_deny'];
+	}
+
+	/**
+	 * LanguageBoards::helpadmin()
+	 *
+	 *  Load the help text... This should be loaded automatically :/
+	 * 
+	 * @return void
+	 */
+	public static function helpadmin()
+	{
+		// Load our language file
+		loadLanguage('LanguageBoards/');
 	}
 }

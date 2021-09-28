@@ -3,7 +3,7 @@
 <package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
 	<id>smftricks:languageboards</id>
 	<name>Language Boards</name>
-	<version>1.0</version>
+	<version>1.0.1</version>
 	<type>modification</type>
 	<install for="2.1 - 2.1.99, 2.1 RC4">
 		<!-- Mod Readme -->
@@ -35,6 +35,7 @@
 		<hook hook="integrate_board_info" function="LanguageBoards::board_info" file="$sourcedir/LanguageBoards.php" />
 		<hook hook="integrate_user_info" function="LanguageBoards::user_info" file="$sourcedir/LanguageBoards.php" />
 		<hook hook="integrate_modify_board_settings" function="LanguageBoards::settings" file="$sourcedir/LanguageBoards.php" />
+		<hook hook="integrate_helpadmin" function="LanguageBoards::helpadmin" file="$sourcedir/LanguageBoards.php" />
 		<!-- Redirect -->
 		<redirect url="?action=admin;area=manageboards;sa=settings;">redirect.txt</redirect>
 	</install>
@@ -53,6 +54,7 @@
 		<hook hook="integrate_board_info" function="LanguageBoards::board_info" file="$sourcedir/LanguageBoards.php" reverse="true" />
 		<hook hook="integrate_user_info" function="LanguageBoards::user_info" file="$sourcedir/LanguageBoards.php" reverse="true" />
 		<hook hook="integrate_modify_board_settings" function="LanguageBoards::settings" file="$sourcedir/LanguageBoards.php" reverse="true" />
+		<hook hook="integrate_helpadmin" function="LanguageBoards::helpadmin" file="$sourcedir/LanguageBoards.php" reverse="true" />
 		<!-- Source File -->
 		<remove-file name="$sourcedir/LanguageBoards.php">Source file</remove-file>
 		<!-- Languages -->
