@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+	<id>smftricks:languageboards</id>
+	<name>Language Boards</name>
+	<version>1.0</version>
+	<type>modification</type>
+	<install for="2.1 - 2.1.99, 2.1 RC4">
+		<!-- Mod Readme -->
+		<readme lang="english" parsebbc="true" type="file">readme/readme.english.txt</readme>
+		<!-- Credits -->
+		<credits url="https://smftricks.com" license="MPL 2.0" copyright="SMF Tricks" licenseurl="https://www.mozilla.org/en-US/MPL/2.0/">Language Boards</credits>
+		<!-- License -->
+		<license type="inline" parsebbc="false">
+			This Source Code Form is subject to the terms of the Mozilla Public
+			License, v. 2.0. If a copy of the GPL was not distributed with this
+			file, You can obtain one at hhttps://www.mozilla.org/en-US/MPL/2.0/.
+		</license>
+		<!-- Theme Files -->
+		<require-dir name="languages/LanguageBoards" destination="$languagedir">Language files</require-dir>
+		<!-- Source File -->
+		<require-dir name="Sources" destination="$boarddir">Source file</require-dir>
+		<!-- Database -->
+		<database>install.php</database>
+		<!-- Hooks -->
+		<hook hook="integrate_pre_boardtree" function="LanguageBoards::pre_boardtree" file="$sourcedir/LanguageBoards.php" />
+		<hook hook="integrate_boardtree_board" function="LanguageBoards::boardtree_board" file="$sourcedir/LanguageBoards.php" />
+		<hook hook="integrate_edit_board" function="LanguageBoards::edit_board" file="$sourcedir/LanguageBoards.php" />
+		<hook hook="integrate_create_board" function="LanguageBoards::create_board" file="$sourcedir/LanguageBoards.php" />
+		<hook hook="integrate_modify_board" function="LanguageBoards::modify_board" file="$sourcedir/LanguageBoards.php" />
+		<hook hook="integrate_pre_boardindex" function="LanguageBoards::pre_boardindex" file="$sourcedir/LanguageBoards.php" />
+		<hook hook="integrate_boardindex_board" function="LanguageBoards::boardindex_board" file="$sourcedir/LanguageBoards.php" />
+		<hook hook="integrate_getboardtree" function="LanguageBoards::getboardtree" file="$sourcedir/LanguageBoards.php" />
+		<hook hook="integrate_load_board" function="LanguageBoards::load_board" file="$sourcedir/LanguageBoards.php" />
+		<hook hook="integrate_board_info" function="LanguageBoards::board_info" file="$sourcedir/LanguageBoards.php" />
+		<hook hook="integrate_user_info" function="LanguageBoards::user_info" file="$sourcedir/LanguageBoards.php" />
+		<hook hook=" integrate_modify_board_settings " function="LanguageBoards::settings" file="$sourcedir/LanguageBoards.php" />
+		<!-- Redirect -->
+		<redirect url="?action=admin;area=manageboards;sa=settings;">redirect.txt</redirect>
+	</install>
+	
+	<uninstall for="2.1 - 2.1.99, 2.1 RC4">
+		<!-- Hooks Remove -->
+		<hook hook="integrate_pre_boardtree" function="LanguageBoards::pre_boardtree" file="$sourcedir/LanguageBoards.php" reverse="true" />
+		<hook hook="integrate_boardtree_board" function="LanguageBoards::boardtree_board" file="$sourcedir/LanguageBoards.php" reverse="true" />
+		<hook hook="integrate_edit_board" function="LanguageBoards::edit_board" file="$sourcedir/LanguageBoards.php" reverse="true" />
+		<hook hook="integrate_create_board" function="LanguageBoards::create_board" file="$sourcedir/LanguageBoards.php" reverse="true" />
+		<hook hook="integrate_modify_board" function="LanguageBoards::modify_board" file="$sourcedir/LanguageBoards.php" reverse="true" />
+		<hook hook="integrate_pre_boardindex" function="LanguageBoards::pre_boardindex" file="$sourcedir/LanguageBoards.php" reverse="true" />
+		<hook hook="integrate_boardindex_board" function="LanguageBoards::boardindex_board" file="$sourcedir/LanguageBoards.php" reverse="true" />
+		<hook hook="integrate_getboardtree" function="LanguageBoards::getboardtree" file="$sourcedir/LanguageBoards.php" reverse="true" />
+		<hook hook="integrate_load_board" function="LanguageBoards::load_board" file="$sourcedir/LanguageBoards.php" reverse="true" />
+		<hook hook="integrate_board_info" function="LanguageBoards::board_info" file="$sourcedir/LanguageBoards.php" reverse="true" />
+		<hook hook="integrate_user_info" function="LanguageBoards::user_info" file="$sourcedir/LanguageBoards.php" reverse="true" />
+		<hook hook=" integrate_modify_board_settings " function="LanguageBoards::settings" file="$sourcedir/LanguageBoards.php" reverse="true" />
+		<!-- Source File -->
+		<remove-file name="$sourcedir/LanguageBoards.php">Source file</remove-file>
+		<!-- Languages -->
+		<remove-dir name="$languagedir/LanguageBoards">Language files</remove-dir>
+		<!-- Database -->
+		<database>install.php</database>
+	</uninstall>
+</package-info>
