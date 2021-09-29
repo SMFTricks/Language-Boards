@@ -8,7 +8,7 @@
  * @license https://www.mozilla.org/en-US/MPL/2.0/
  */
 
- global $helptxt;
+global $helptxt;
 
 // Board settings
 $txt['LanguageBoards_setting'] = 'Language for the board';
