@@ -219,24 +219,24 @@ class LanguageBoards
 			foreach ($category as $cat)
 			{
 				// Loop through the boards
-				foreach ($cat['boards'] as $id_board => $board)
+				foreach ($cat['boards'] as $id_board => $lang_board)
 				{
 					// Save the boards that have a language, only if the user doesn't manage the boards
-					if (!allowedTo('manage_boards') && !empty($board[self::$_column]))
+					if (!allowedTo('manage_boards') && !empty($lang_board[self::$_column]))
 					{
 						self::$_hide_boards[$id_board] = [
-							'cat' => $board['id_cat'],
-							'lang' => $board[self::$_column]
+							'cat' => $lang_board['id_cat'],
+							'lang' => $lang_board[self::$_column]
 						];
 					}
 				}
 			}
 
 			//  HIde these boards if: the board has a specific language and the user language doesn't match the board language
-			foreach (self::$_hide_boards as $board => $board_info)
+			foreach (self::$_hide_boards as $hide_id => $hide_info)
 			{
-				if ($user_info['language'] != $board_info['lang'])
-					unset($category[$board_info['cat']]['boards'][$board]);
+				if ($user_info['language'] != $hide_info['lang'])
+					unset($category[$hide_info['cat']]['boards'][$hide_id]);
 			}
 		}
 	}
