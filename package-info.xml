@@ -3,7 +3,7 @@
 <package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
 	<id>smftricks:languageboards</id>
 	<name>Language Boards</name>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<type>modification</type>
 	<install for="2.1 - 2.1.99, 2.1 RC4">
 		<!-- Mod Readme -->
