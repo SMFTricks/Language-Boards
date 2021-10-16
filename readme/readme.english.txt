@@ -19,7 +19,7 @@
 [/list]
 
 [size=12pt][color=maroon]Languages[/color][/size]
-[img]https://www.simplemachines.org/site_images/lang/english.gif[/img]
+[img]https://www.simplemachines.org/site_images/lang/english.gif[/img] [img]https://www.simplemachines.org/site_images/lang/russian.gif[/img]
 
 [hr]
 
