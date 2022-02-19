@@ -3,9 +3,9 @@
 <package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
 	<id>smftricks:languageboards</id>
 	<name>Language Boards</name>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<type>modification</type>
-	<install for="2.1 - 2.1.99, 2.1 RC4">
+	<install for="2.1 - 2.1.99">
 		<!-- Mod Readme -->
 		<readme lang="english" parsebbc="true" type="file">readme/readme.english.txt</readme>
 		<!-- Credits -->
@@ -13,7 +13,7 @@
 		<!-- License -->
 		<license type="inline" parsebbc="false">
 			This Source Code Form is subject to the terms of the Mozilla Public
-			License, v. 2.0. If a copy of the GPL was not distributed with this
+			License, v. 2.0. If a copy of the MPL was not distributed with this
 			file, You can obtain one at hhttps://www.mozilla.org/en-US/MPL/2.0/.
 		</license>
 		<!-- Theme Files -->
@@ -40,7 +40,7 @@
 		<redirect url="?action=admin;area=manageboards;sa=settings;">redirect.txt</redirect>
 	</install>
 	
-	<uninstall for="2.1 - 2.1.99, 2.1 RC4">
+	<uninstall for="2.1 - 2.1.99">
 		<!-- Hooks Remove -->
 		<hook hook="integrate_pre_boardtree" function="LanguageBoards::pre_boardtree" file="$sourcedir/LanguageBoards.php" reverse="true" />
 		<hook hook="integrate_boardtree_board" function="LanguageBoards::boardtree_board" file="$sourcedir/LanguageBoards.php" reverse="true" />
