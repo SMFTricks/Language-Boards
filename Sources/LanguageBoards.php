@@ -34,6 +34,11 @@ class LanguageBoards
 	private static $_hide_boards = [];
 
 	/**
+	 * @var array CTE boards array for support?
+	 */
+	private static $_cte_boards = [];
+
+	/**
 	 * LanguageBoards::pre_boardtree()
 	 *
 	 * Append our column to the board tree
@@ -181,6 +186,22 @@ class LanguageBoards
 	 */
 	public static function pre_boardindex(&$board_index_selects)
 	{
+		global $smcFunc;
+
+		// check compatibility
+		if ($smcFunc['db_cte_support']())
+		{
+			$no_rec_boards = $smcFunc['db_query']('', '
+				SELECT b.id_board, b.name, b.' . self::$_column . '
+				FROM {db_prefix}boards AS b',
+				[]
+			);
+			while ($row = $smcFunc['db_fetch_assoc']($no_rec_boards))
+				self::$_cte_boards[$row['id_board']] = $row[self::$_column];
+			$smcFunc['db_free_result']($no_rec_boards);
+			return;
+		}
+
 		$board_index_selects[] = 'b.' . self::$_column;
 	}
 
@@ -195,7 +216,9 @@ class LanguageBoards
 	 */
 	public static function boardindex_board(&$this_category, $row_board)
 	{
-		$this_category[$row_board['id_board']][self::$_column] = $row_board[self::$_column];
+		global $smcFunc;
+
+		$this_category[$row_board['id_board']][self::$_column] = $smcFunc['db_cte_support']() ? self::$_cte_boards[$row_board['id_board']] : $row_board[self::$_column];
 	}
 
 	/**
