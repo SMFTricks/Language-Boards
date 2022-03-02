@@ -2,9 +2,9 @@
 
 /**
  * @package Language Boards
- * @version 1.0.1
+ * @version 1.1
  * @author Diego Andrés <diegoandres_cortes@outlook.com>
- * @copyright Copyright (c) 2021, SMF Tricks
+ * @copyright Copyright (c) 2022, SMF Tricks
  * @license https://www.mozilla.org/en-US/MPL/2.0/
  */
 
@@ -191,17 +191,28 @@ class LanguageBoards
 		// check compatibility
 		if ($smcFunc['db_cte_support']())
 		{
-			$no_rec_boards = $smcFunc['db_query']('', '
-				SELECT b.id_board, b.name, b.' . self::$_column . '
-				FROM {db_prefix}boards AS b',
-				[]
-			);
-			while ($row = $smcFunc['db_fetch_assoc']($no_rec_boards))
-				self::$_cte_boards[$row['id_board']] = $row[self::$_column];
-			$smcFunc['db_free_result']($no_rec_boards);
+			// Cache the boards
+			if ((self::$_cte_boards = cache_get_data('language_boards_cte', 3600)) === null)
+			{
+				// Get the boards language
+				$no_rec_boards = $smcFunc['db_query']('', '
+					SELECT b.id_board, b.' . self::$_column . '
+					FROM {db_prefix}boards AS b',
+					[]
+				);
+				while ($row = $smcFunc['db_fetch_assoc']($no_rec_boards))
+					self::$_cte_boards[$row['id_board']] = $row[self::$_column];
+				$smcFunc['db_free_result']($no_rec_boards);
+
+				// Cache
+				cache_put_data('language_boards_cte', self::$_cte_boards, 3600);
+			}
+
+			// Done here, no columns
 			return;
 		}
 
+		// Add the column to the board query
 		$board_index_selects[] = 'b.' . self::$_column;
 	}
 
@@ -218,7 +229,8 @@ class LanguageBoards
 	{
 		global $smcFunc;
 
-		$this_category[$row_board['id_board']][self::$_column] = $smcFunc['db_cte_support']() ? self::$_cte_boards[$row_board['id_board']] : $row_board[self::$_column];
+		// Add the board language, and check for cte compatibility
+		$this_category[$row_board['id_board']][self::$_column] = $smcFunc['db_cte_support']() ? (isset(self::$_cte_boards[$row_board['id_board']]) ? self::$_cte_boards[$row_board['id_board']] : '') : $row_board[self::$_column];
 	}
 
 	/**
