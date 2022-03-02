@@ -1,6 +1,6 @@
 # Changelog
 
-#### 1.1 - 01  March 2022
+#### 1.1 - 02  March 2022
 - ![New Feature](https://smftricks.com/assets/changelog/tag--plus.png) Added support for CTE.
 
 #### 1.0.4 - 19 February 2022
