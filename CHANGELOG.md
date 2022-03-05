@@ -1,5 +1,8 @@
 # Changelog
 
+#### 1.1.1 - 04 March 2022
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed default value for the column.
+
 #### 1.1 - 02  March 2022
 - ![New Feature](https://smftricks.com/assets/changelog/tag--plus.png) Added support for CTE.
 ---
