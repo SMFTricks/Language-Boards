@@ -27,8 +27,7 @@ elseif (!defined('SMF'))
 				'name' => 'board_language',
 				'type' => 'varchar',
 				'size' => 255,
-				'default' => ' ',
-				'not_null' => true,
+				'default' => '',
 			]
 		);
 	}
