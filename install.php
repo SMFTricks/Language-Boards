@@ -2,9 +2,9 @@
 
 /**
  * @package Language Boards
- * @version 1.0.1
+ * @version 1.1
  * @author Diego Andrés <diegoandres_cortes@outlook.com>
- * @copyright Copyright (c) 2021, SMF Tricks
+ * @copyright Copyright (c) 2022, SMF Tricks
  * @license https://www.mozilla.org/en-US/MPL/2.0/
  */
 
@@ -27,7 +27,7 @@ elseif (!defined('SMF'))
 				'name' => 'board_language',
 				'type' => 'varchar',
 				'size' => 255,
-				'default' => '',
+				'default' => ' ',
 				'not_null' => true,
 			]
 		);
